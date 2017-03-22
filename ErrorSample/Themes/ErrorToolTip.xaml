@@ -1,0 +1,20 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:ErrorSample">
+
+    <ControlTemplate x:Key="ValidationTemplate">
+        <Label IsHitTestVisible="False" Opacity="0.3">
+            <!--<TextBlock Foreground="Red" Text="{Binding AdornedElement.(Validation.Errors)[0].ErrorContent, ElementName=adornedelem}" />-->
+            <AdornedElementPlaceholder>
+                <ListBox ItemsSource="{Binding AdornedElement.(Validation.Errors),RelativeSource={RelativeSource AncestorType=AdornedElementPlaceholder}}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Label Background="Tomato" Content="{Binding ErrorContent}"></Label>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </AdornedElementPlaceholder>
+        </Label>
+    </ControlTemplate>
+</ResourceDictionary>

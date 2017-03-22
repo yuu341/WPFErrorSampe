@@ -6,9 +6,12 @@
         xmlns:local="clr-namespace:ErrorSample"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <!--<Window.Resources>
-        <ResourceDictionary Source="Themes/Generic.xaml"/>
-    </Window.Resources>-->
+    <Window.Resources>
+        <ResourceDictionary Source="Themes/ErrorToolTip.xaml"/>
+    </Window.Resources>
+    <Window.DataContext>
+        <local:MainWindowViewModel/>
+    </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="158*"/>
@@ -20,7 +23,10 @@
             <ColumnDefinition Width="34*"/>
             <ColumnDefinition Width="51*"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="button" Content="Button" Grid.Column="1" Grid.Row="1"/>
+        <Button x:Name="button" Content="OK" Grid.Column="1" Grid.Row="2" Command="{Binding OkCommand}"/>
+        <TextBox x:Name="test" Height="50" Grid.ColumnSpan="3" HorizontalAlignment="Stretch"  TextWrapping="Wrap" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" VerticalAlignment="Stretch">
+            
+        </TextBox>
 
     </Grid>
 </Window>
