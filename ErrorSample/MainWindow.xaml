@@ -6,7 +6,21 @@
         xmlns:local="clr-namespace:ErrorSample"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
+    <!--<Window.Resources>
+        <ResourceDictionary Source="Themes/Generic.xaml"/>
+    </Window.Resources>-->
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="158*"/>
+            <RowDefinition Height="41*"/>
+            <RowDefinition Height="124*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="45*"/>
+            <ColumnDefinition Width="34*"/>
+            <ColumnDefinition Width="51*"/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="button" Content="Button" Grid.Column="1" Grid.Row="1"/>
+
     </Grid>
 </Window>
